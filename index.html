@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detect KPXC-Browser PoC</title>
+    <style>
+      #tardis {
+        color: var(--kpxc-text-color, #fff);
+      }
+    </style>
+    <script>
+      function detect_kpxc_browser() {
+          let tardis = document.getElementById("tardis");
+          let color = getComputedStyle(tardis).color;
+          let result = document.getElementById("result");
+          switch (color) {
+              case "rgb(255, 255, 255)":
+                result.innerText = "KeePassXC-Browser not detected.";
+                break;
+              case "rgb(0, 0, 0)":
+                result.innerText = "KeePassXC-Browser detected.";
+                break;
+              default:
+                result.innerText = "Detection failed.";
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Detect KPXC-Browser PoC</h1>
+    <span id="tardis"></span>
+    <button onclick="detect_kpxc_browser();">Detect KPXC-Browser</button>
+    <p id="result">Click the button above to start detection.</p>
+  </body>
+</html>
+
