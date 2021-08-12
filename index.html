@@ -4,7 +4,15 @@
     <title>Detect KPXC-Browser PoC</title>
     <style>
       #tardis {
-        color: var(--kpxc-text-color, #fff);
+          color: var(--kpxc-text-color, #fff);
+      }
+      #result {
+          background: darkgrey;
+          padding: 0.2em;
+          width: max-content;
+          border-radius: 4px;
+          box-shadow: 0px 0px 20px darkgray;
+          margin-bottom: 4em;
       }
     </style>
     <script>
@@ -15,21 +23,40 @@
           switch (color) {
               case "rgb(255, 255, 255)":
                 result.innerText = "KeePassXC-Browser not detected.";
+                result.style.background = "#90EE90";
                 break;
               case "rgb(0, 0, 0)":
                 result.innerText = "KeePassXC-Browser detected.";
+                result.style.background = "#EE9090";
                 break;
               default:
                 result.innerText = "Detection failed.";
+                result.style.background = "#9090EE";
           }
       }
     </script>
   </head>
   <body>
     <h1>Detect KPXC-Browser PoC</h1>
+    <p><noscript><span style="background: LightCoral; padding: 0.5em;">Please allow JavaScript</span></noscript></p>
     <span id="tardis"></span>
     <button onclick="detect_kpxc_browser();">Detect KPXC-Browser</button>
     <p id="result">Click the button above to start detection.</p>
+    <p>
+      Relevant links:
+      <ul>
+        <li>
+          <a href="https://github.com/keepassxreboot/keepassxc-browser/issues/1340">
+            https://github.com/keepassxreboot/keepassxc-browser/issues/1340
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/keepassxreboot/keepassxc-browser/pull/1386">
+            https://github.com/keepassxreboot/keepassxc-browser/pull/1386
+          </a>
+        </li>
+      </ul
+    </p>
   </body>
 </html>
 
